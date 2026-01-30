@@ -1,0 +1,13 @@
+# Python data
+.ipynb_checkpoints
+__pycache__
+
+# Editors
+.idea
+.vscode
+
+# Environment
+.env
+
+# Datasets
+
