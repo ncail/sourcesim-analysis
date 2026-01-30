@@ -1,0 +1,13 @@
+name: sourcesim-analysis
+channels:
+  - defaults
+dependencies:
+  - pip
+  - python=3.13.3
+  - pip:
+      - numpy
+      - matplotlib
+      - jupyter
+      - ipykernel
+      - uproot
+      - pandas
