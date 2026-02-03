@@ -11,3 +11,5 @@ dependencies:
       - ipykernel
       - uproot
       - pandas
+      - hist[plot]
+      - scipy
