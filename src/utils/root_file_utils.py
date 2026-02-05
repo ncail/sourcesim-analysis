@@ -15,6 +15,7 @@ def hist2d_to_hist1d_shells(
     xlabel: str,
     ylabel: str,
     title: str,
+    save_path: str
 ):
     """
     Returns a plot with multiple 1D histograms from slicing a 2D histogram. 
@@ -69,6 +70,9 @@ def hist2d_to_hist1d_shells(
     plt.title(title)
     plt.legend()
     plt.grid(alpha=0.3)
+
+    if save_path:
+        plt.savefig(save_path, bbox_inches="tight")
     plt.show()
 # End function
 
