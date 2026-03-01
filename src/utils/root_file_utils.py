@@ -127,6 +127,13 @@ def rebin_hist(
 # End function.
 
 
+def get_number_bins(hist_obj, axis):
+    # Convert to Hist object if not already.
+    if not isinstance(hist_obj, Hist):
+        hist_obj = Hist(hist_obj)
+
+    n_bins = len(hist_obj.axes[axis].edges) - 1
+    return n_bins
 
 
 
