@@ -1,0 +1,57 @@
+# Macro arguments
+/control/alias ZPOSIN {ARG1}
+
+# Calibration of zPos in cm 
+# From Richard Germond: 80 cm "source in" = 3.6 cm below lead plug
+# Bottom of lead plug = 19.1 cm in global coordinates
+# ZOFFSET= 19.1 cm + 76.4 cm = 95.5 cm
+/control/alias ZOFFSET 95.5
+/control/subtract ZPOS {ZOFFSET} {ZPOSIN}
+
+# Lab and detector configuration
+/CDMS/Lab NoLab
+/CDMS/Detector cute
+/CDMS/UseShield
+/CDMS/CUTE/Tower snolab
+/CDMS/CUTE/Housing snolabfilled
+
+/control/execute {CDMS_SUPERSIM}/CDMSgeometry/macros/CUTE_T3_stack.mac
+
+/CDMS/Stack/UseClamps
+
+# Disable masks for visualization
+/CDMS/Zip/UseElectrodeMask false
+
+# Source configuration
+/CDMS/Source snocap
+/CDMS/SnoCap/Position 15.8 -15.8 {ZPOS} cm
+/CDMS/SnoCap/AddIsotope 56 133
+
+/CDMS/updateGeom
+#/CDMS/checkGeometry
+
+# Data output commands
+/CDMS/writeData false
+/CDMS/writeTrees true
+/CDMS/writeEmptyEvents false
+/CDMS/writeEmptyHits false
+/CDMS/writeFilePrefix CUTE-T3_Ba133_zPos_{ZPOSIN}cm_newSH_vis
+
+/run/initialize
+
+/vis/open HepRepFile
+/vis/heprep/setFileName CUTE-T3_Ba133_zPos_{ZPOSIN}cm_newSH_Run
+#/vis/viewer/set/style surface
+/vis/drawVolume
+/vis/scene/endOfEventAction accumulate
+/vis/viewer/set/autoRefresh false
+/vis/viewer/set/viewpointThetaPhi 60 0          # Looking down from above
+/vis/scene/add/trajectories
+
+
+# Beam commands
+/run/printProgress 10
+/run/setRunID 1
+/run/autoSeed true
+/run/beamOn 10
+

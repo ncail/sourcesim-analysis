@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --job-name=HV100mm_launch
+#SBATCH --account=rrg-mdiamond
+#SBATCH --output=/scratch/perry/slurm/output/%x-%j.log
+#SBATCH --error=/scratch/perry/slurm/error/%x-%j.err
+#SBATCH --time=04:00:00
+#SBATCH --mail-type=ALL
+#SBATCH --cpus-per-task=21
+#SBATCH --mem-per-cpu=5G
+
+module load scdms/V05-06
+singularity exec $SCDMS_IMAGE CDMS_GGSim /scratch/perry/CUTE-T3_Ba133/CUTE-T3_Ba133_12inch_DMC.mac $1
