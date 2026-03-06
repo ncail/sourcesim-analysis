@@ -28,11 +28,12 @@
 /CDMS/SnoCap/AddIsotope 56 133
 
 # sampling settings
-/g4cmp/samplingEnergy 100 eV
-/g4cmp/phononBounces 20000
-/g4cmp/combiningStepLength 2 mm
+/g4cmp/samplingEnergy 100 eV       # Energy above which to downsample
+/g4cmp/phononBounces 20000         # Maximum phonon reflections
+/g4cmp/combiningStepLength 2 mm    # Combine hits below step length
 
 # production cuts
+# this is the range that a secondary particle must be able to travel, or else its track is not created and its energy is deposited locally instead
 /CDMS/Physics/ApplyProductionCuts true
 /CDMS/Physics/ElectronCut 1 mm
 /CDMS/Physics/PositronCut 1 mm
