@@ -1,15 +1,11 @@
 name: sourcesim-analysis
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - pip
   - python=3.13.3
-  - pip:
-      - numpy
-      - matplotlib
-      - jupyter
-      - ipykernel
-      - uproot
-      - pandas
-      - hist[plot]
-      - scipy
+  - numpy
+  - matplotlib
+  - ipykernel
+  - uproot
+  - hist[plot]
