@@ -54,7 +54,7 @@
 /CDMS/writeDMC false             # phonon hits not recorded in separate txt file
 /CDMS/Output/Root/writeDMC false # phonon hits not recorded in ROOT file
 
-/CDMS/writeFilePrefix CUTE-T3_Ba133_12inch_DMC # better to explicitly put a file path before the name
+/CDMS/writeFilePrefix /scratch/nevenac/CUTE-T3_Ba133_12inch_DMC/CUTE-T3_Ba133_12inch_DMC # better to explicitly put a file path before the name
 
 # Beam commands
 /run/printProgress 3
